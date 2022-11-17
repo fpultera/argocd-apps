@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackgres-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: stackgres-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/'
+    targetRevision: 1.3.3
+    chart: stackgres-charts
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
