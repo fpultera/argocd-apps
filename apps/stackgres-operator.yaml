@@ -10,8 +10,8 @@ spec:
   project: default
   source:
     repoURL: 'https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/'
-    targetRevision: 1.0.0
-    chart: stackgres-charts/stackgres-operatorg
+    targetRevision: 1.3.3
+    chart: stackgres-charts
     helm:
       values: |
         adminui:
