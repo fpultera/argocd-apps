@@ -16,7 +16,7 @@ spec:
       values: |
         adminui:
           service:
-            type: ClusterIp
+            type: ClusterIP
   syncPolicy:
     automated:
       prune: true
