@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: stackgres-operator
+    namespace: stackgres
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -15,15 +15,8 @@ spec:
     helm:
       values: |
         adminui:
-          name: stackgres-adminui
-          image:
-            name: "stackgres/admin-ui"
-            tag: "main"
-            pullPolicy: "IfNotPresent"
-          resources: {}
           service:
-            exposeHTTP: true
-            type: ClusterIP
+            type: LoadBalancer
   syncPolicy:
     automated:
       prune: true
