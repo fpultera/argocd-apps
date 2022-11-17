@@ -12,6 +12,18 @@ spec:
     repoURL: 'https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/'
     targetRevision: 1.4.0-RC1
     chart: stackgres-operator
+    helm:
+      values: |
+        adminui:
+          name: stackgres-adminui
+          image:
+            name: "stackgres/admin-ui"
+            tag: "main"
+            pullPolicy: "IfNotPresent"
+          resources: {}
+          service:
+            exposeHTTP: false
+            type: ClusterIP
   syncPolicy:
     automated:
       prune: true
