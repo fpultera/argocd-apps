@@ -22,7 +22,7 @@ spec:
             pullPolicy: "IfNotPresent"
           resources: {}
           service:
-            exposeHTTP: false
+            exposeHTTP: true
             type: ClusterIP
   syncPolicy:
     automated:
