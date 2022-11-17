@@ -18,3 +18,24 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackgres
+  namespace: argocd
+spec:
+  destination:
+    namespace: stackgres
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/'
+    targetRevision: 1.4.0-RC1
+    chart: stackgres
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
