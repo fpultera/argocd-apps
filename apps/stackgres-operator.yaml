@@ -15,8 +15,9 @@ spec:
     helm:
       values: |
         adminui:
+          exposeHTTP: false
           service:
-            type: ClusterIP
+            type: NodePort
         deploy:
           operator: true
           restapi: true
