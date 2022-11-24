@@ -4,17 +4,17 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: stackgres
-  namespace: default
+  namespace: stackgres-operator
 ---
 # Source: stackgres-operator/templates/webapi-service-account.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: stackgres-restapi
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
 ---
@@ -23,25 +23,25 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: stackgres-restapi
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
     api.stackgres.io/auth: user
 type: Opaque
 data:
   k8sUsername: "YWRtaW4="
-  password: "Yzk2OTA4Mzk5ZjE3ZGUwNThiMzVjZjgwZmMyOTg4NmEzNmI2NWE0NTY0MjJmZGQwNTZhYWJkNDMwNDQyOGZlMg=="
-  clearPassword: "T0R1RkxDdHp3UnA5UmQ2cEQwN3ZJVlJ2STZneU41VWo2YzBBRXBHZA=="
+  password: "NWRmZmJiNzljYTg0NjYzN2EyMmI2NzVhZDY0YmE3MGI3NzUxNjRiZTNjN2ZhYzgyNDkwYTkzNzBiNDJjNjQ4Mg=="
+  clearPassword: "ZHRpc1BBYlE2cUNudkhuMG5XQ0lKUHRuUU1HZTI2akVxQ1A5Qk9aSw=="
 ---
 # Source: stackgres-operator/templates/grafana-dashboard-configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: stackgres-grafana-dashboard
-  namespace: default
+  namespace: stackgres-operator
 data:
   grafana-dashboard.json: |
     {
@@ -8505,10 +8505,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: stackgres-restapi-nginx
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
 data:
@@ -8701,7 +8701,7 @@ metadata:
   name: stackgres-restapi
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
 rules:
@@ -8732,11 +8732,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: stackgres
-  namespace: default
+  namespace: stackgres-operator
 subjects:
 - kind: ServiceAccount
   name: stackgres
-  namespace: default
+  namespace: stackgres-operator
 roleRef:
   kind: ClusterRole
   name: stackgres
@@ -8747,10 +8747,10 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: stackgres-restapi-admin
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
     api.stackgres.io/auth: rolebinding
@@ -8769,13 +8769,13 @@ metadata:
   name: stackgres-restapi
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
 subjects:
 - kind: ServiceAccount
   name: stackgres-restapi
-  namespace: default
+  namespace: stackgres-operator
 roleRef:
   kind: ClusterRole
   name: stackgres-restapi
@@ -8785,7 +8785,7 @@ roleRef:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: default
+  namespace: stackgres-operator
   name: stackgres
 spec:
   type: ClusterIP
@@ -8801,11 +8801,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: default
+  namespace: stackgres-operator
   name: stackgres-restapi
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -8827,7 +8827,7 @@ metadata:
     version: "1.3.3"
     group:  stackgres.io
   name: stackgres
-  namespace: default
+  namespace: stackgres-operator
 spec:
   replicas: 0
   selector:
@@ -8918,14 +8918,14 @@ kind: "Deployment"
 metadata:
   annotations:
     meta.helm.sh/release-name: stackgres
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: stackgres-operator
   labels:
     app.kubernetes.io/managed-by: Helm
     app: stackgres-restapi
     version: "1.3.3"
     group:  stackgres.io
   name: stackgres-restapi
-  namespace: default
+  namespace: stackgres-operator
 spec:
   replicas: 0
   selector:
@@ -9083,7 +9083,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: stackgres-init
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
@@ -9094,7 +9094,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: stackgres-init
-  namespace: default
+  namespace: stackgres-operator
   annotations:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
@@ -9102,7 +9102,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: stackgres-init
-  namespace: default
+  namespace: stackgres-operator
 roleRef:
   kind: ClusterRole
   name: 'cluster-admin'
@@ -9113,7 +9113,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-cr-updater"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: stackgres-operator
     scope: init
@@ -9160,7 +9160,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-crd-upgrade"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: stackgres-operator
     scope: init
@@ -9207,7 +9207,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-conversion-webhooks"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: stackgres-operator
     scope: init
@@ -9256,7 +9256,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-create-certificate"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: "stackgres-create-certificate"
     scope: init
@@ -9302,9 +9302,9 @@ spec:
             subjectAltName = @alt_names
             [alt_names]
             DNS.1 = stackgres
-            DNS.2 = stackgres.default
-            DNS.3 = stackgres.default.svc
-            DNS.4 = stackgres.default.svc.cluster.local
+            DNS.2 = stackgres.stackgres-operator
+            DNS.3 = stackgres.stackgres-operator.svc
+            DNS.4 = stackgres.stackgres-operator.svc.cluster.local
             EOF
             
             K8S_VERSION="$(kubectl get node --template '{{ (index .items 0).status.nodeInfo.kubeletVersion }}')"
@@ -9316,12 +9316,12 @@ spec:
                 | while read NUMBER; do printf '%05d' "$NUMBER"; done)" ]
             then
               openssl req -new -nodes -text -keyout /tmp/root.key \
-                  -subj "/CN=system:node:stackgres.default;/O=system:nodes" \
+                  -subj "/CN=system:node:stackgres.stackgres-operator;/O=system:nodes" \
                   -out /tmp/server.csr \
                   -config /tmp/csr.conf
             else
               openssl req -new -nodes -text -keyout /tmp/root.key \
-                  -subj "/CN=stackgres.default" \
+                  -subj "/CN=stackgres.stackgres-operator" \
                   -out /tmp/server.csr \
                   -config /tmp/csr.conf
             fi
@@ -9394,10 +9394,10 @@ spec:
             kind: Secret
             metadata:
               name: stackgres-certs
-              namespace: default
+              namespace: stackgres-operator
               annotations:
                 meta.helm.sh/release-name: stackgres
-                meta.helm.sh/release-namespace: default
+                meta.helm.sh/release-namespace: stackgres-operator
               labels:
                 app.kubernetes.io/managed-by: Helm
             type: kubernetes.io/tls
@@ -9410,14 +9410,14 @@ spec:
             kind: ValidatingWebhookConfiguration
             metadata:
               name: stackgres
-              namespace: default
+              namespace: stackgres-operator
               annotations:
                 meta.helm.sh/release-name: stackgres
-                meta.helm.sh/release-namespace: default
+                meta.helm.sh/release-namespace: stackgres-operator
               labels:
                 app.kubernetes.io/managed-by: Helm
             webhooks:
-              - name: sgcluster.stackgres.default
+              - name: sgcluster.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9427,12 +9427,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgcluster'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgpgconfig.stackgres.default
+              - name: sgpgconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9442,12 +9442,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgpgconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgpoolconfig.stackgres.default
+              - name: sgpoolconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9457,12 +9457,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgpoolconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sginstanceprofile.stackgres.default
+              - name: sginstanceprofile.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9472,12 +9472,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sginstanceprofile'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgbackupconfig.stackgres.default
+              - name: sgbackupconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9487,12 +9487,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgbackupconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgbackup.stackgres.default
+              - name: sgbackup.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9502,12 +9502,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgbackup'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgdistributedlogs.stackgres.default
+              - name: sgdistributedlogs.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9517,12 +9517,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgdistributedlogs'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgdbops.stackgres.default
+              - name: sgdbops.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9532,12 +9532,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgdbops'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgobjectstorage.stackgres.default
+              - name: sgobjectstorage.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9547,12 +9547,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgobjectstorage'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgscripts.stackgres.default
+              - name: sgscripts.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE", "DELETE"]
@@ -9562,7 +9562,7 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/validation/sgscript'
                   caBundle: ${CRT}
@@ -9573,14 +9573,14 @@ spec:
             kind: MutatingWebhookConfiguration
             metadata:
               name: stackgres
-              namespace: default
+              namespace: stackgres-operator
               annotations:
                 meta.helm.sh/release-name: stackgres
-                meta.helm.sh/release-namespace: default
+                meta.helm.sh/release-namespace: stackgres-operator
               labels:
                 app.kubernetes.io/managed-by: Helm
             webhooks:
-              - name: sgcluster.stackgres.default
+              - name: sgcluster.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9590,12 +9590,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgcluster'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgpgconfig.stackgres.default
+              - name: sgpgconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9605,12 +9605,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgpgconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgpoolconfig.stackgres.default
+              - name: sgpoolconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9620,12 +9620,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgpoolconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sginstanceprofile.stackgres.default
+              - name: sginstanceprofile.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9635,12 +9635,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sginstanceprofile'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgbackupconfig.stackgres.default
+              - name: sgbackupconfig.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9650,12 +9650,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgbackupconfig'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgbackup.stackgres.default
+              - name: sgbackup.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9665,12 +9665,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgbackup'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgdistributedlogs.stackgres.default
+              - name: sgdistributedlogs.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9680,12 +9680,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgdistributedlogs'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgdbops.stackgres.default
+              - name: sgdbops.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9695,12 +9695,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgdbops'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgobjectstorage.stackgres.default
+              - name: sgobjectstorage.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9710,12 +9710,12 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgobjectstorage'
                   caBundle: '${CRT}'
                 admissionReviewVersions: ["v1"]
-              - name: sgscripts.stackgres.default
+              - name: sgscripts.stackgres.stackgres-operator
                 sideEffects: None
                 rules:
                   - operations: ["CREATE", "UPDATE"]
@@ -9725,7 +9725,7 @@ spec:
                 failurePolicy: Fail
                 clientConfig:
                   service:
-                    namespace: default
+                    namespace: stackgres-operator
                     name: stackgres
                     path: '/stackgres/mutation/sgscript'
                   caBundle: ${CRT}
@@ -9749,13 +9749,13 @@ spec:
             subjectAltName = @alt_names
             [alt_names]
             DNS.1 = stackgres-restapi
-            DNS.2 = stackgres-restapi.default
-            DNS.3 = stackgres-restapi.default.svc
-            DNS.4 = stackgres-restapi.default.svc.cluster.local
+            DNS.2 = stackgres-restapi.stackgres-operator
+            DNS.3 = stackgres-restapi.stackgres-operator.svc
+            DNS.4 = stackgres-restapi.stackgres-operator.svc.cluster.local
             EOF
             
             openssl req -new -nodes -text -keyout /tmp/web.key \
-                -subj "/CN=stackgres-restapi.default" \
+                -subj "/CN=stackgres-restapi.stackgres-operator" \
                 -out /tmp/server-web.csr \
                 -config /tmp/csr-web.conf
             openssl rsa -in /tmp/web.key -pubout -out /tmp/web.pem
@@ -9769,10 +9769,10 @@ spec:
             kind: Secret
             metadata:
               name: stackgres-web-certs
-              namespace: default
+              namespace: stackgres-operator
               annotations:
                 meta.helm.sh/release-name: stackgres
-                meta.helm.sh/release-namespace: default
+                meta.helm.sh/release-namespace: stackgres-operator
               labels:
                 app.kubernetes.io/managed-by: Helm
             type: kubernetes.io/tls
@@ -9791,7 +9791,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-set-crd-version"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: "stackgres-set-crd-version"
     scope: init
@@ -9835,7 +9835,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-wait"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: stackgres-operator
     scope: cleanup
@@ -9868,18 +9868,18 @@ spec:
           - "/bin/bash"
           - "-ecx"
           - |
-            kubectl set env -n 'default' 'deployment/stackgres' DISABLE_RECONCILIATION-
-            kubectl scale --timeout 1h --replicas 1 -n 'default' 'deployment/stackgres'
-            kubectl scale --timeout 1h --replicas 1 -n 'default' 'deployment/stackgres-restapi'
-            kubectl rollout status -n 'default' 'deployment/stackgres'
-            kubectl rollout status -n 'default' 'deployment/stackgres-restapi'
+            kubectl set env -n 'stackgres-operator' 'deployment/stackgres' DISABLE_RECONCILIATION-
+            kubectl scale --timeout 1h --replicas 1 -n 'stackgres-operator' 'deployment/stackgres'
+            kubectl scale --timeout 1h --replicas 1 -n 'stackgres-operator' 'deployment/stackgres-restapi'
+            kubectl rollout status -n 'stackgres-operator' 'deployment/stackgres'
+            kubectl rollout status -n 'stackgres-operator' 'deployment/stackgres-restapi'
 ---
 # Source: stackgres-operator/templates/wait-webhooks-job.yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: "stackgres-wait-webhooks"
-  namespace: default
+  namespace: stackgres-operator
   labels:
     app: stackgres-operator
     scope: init
@@ -9912,6 +9912,6 @@ spec:
           - "/bin/bash"
           - "-ecx"
           - |
-            kubectl set env -n 'default' 'deployment/stackgres' DISABLE_RECONCILIATION=true
-            kubectl scale --timeout 1h --replicas 1 -n 'default' 'deployment/stackgres'
-            kubectl rollout status -n 'default' 'deployment/stackgres'
+            kubectl set env -n 'stackgres-operator' 'deployment/stackgres' DISABLE_RECONCILIATION=true
+            kubectl scale --timeout 1h --replicas 1 -n 'stackgres-operator' 'deployment/stackgres'
+            kubectl rollout status -n 'stackgres-operator' 'deployment/stackgres'
