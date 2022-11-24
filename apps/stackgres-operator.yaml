@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/'
-    targetRevision: 1.4.0-SNAPSHOT
+    targetRevision: 1.4.0-RC2
     chart: stackgres-operator
     helm:
       values: |
