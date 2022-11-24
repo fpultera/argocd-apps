@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hoppscotch
+  namespace: argocd
+spec:
+  destination:
+    namespace: hoppscotch
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://charts.deliveryhero.io/'
+    targetRevision: 0.2.8
+    chart: deliveryhero/hoppscotch
+    # helm:
+    #   values: |
+    #     adminui:
+    #       service:
+    #         type: ClusterIP
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
