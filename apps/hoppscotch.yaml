@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://charts.deliveryhero.io/'
     targetRevision: 0.2.8
-    chart: deliveryhero/hoppscotch
+    chart: hoppscotch
     # helm:
     #   values: |
     #     adminui:
