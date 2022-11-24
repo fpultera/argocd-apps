@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: 'https://gitlab.com/ongresinc/stackgres/install/helm/stackgres-operator/'
-    targetRevision: release-1.4.0
-    path: .
+    repoURL: 'https://gitlab.com/ongresinc/stackgres/'
+    targetRevision: main
+    path: "stackgres-k8s/install/helm/stackgres-operator"
     helm:
       values: |
         adminui:
