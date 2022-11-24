@@ -17,6 +17,9 @@ spec:
         adminui:
           service:
             type: ClusterIP
+        deploy:
+          operator: true
+          restapi: true
   syncPolicy:
     automated:
       prune: true
