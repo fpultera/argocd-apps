@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackgres-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: stackgres
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://gitlab.com/ongresinc/stackgres'
+    targetRevision: release-1.4.0
+    path: install/helm/stackgres-operator/.
+    helm:
+      values: |
+        adminui:
+          service:
+            type: ClusterIP
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
