@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/connctd/sqlbee'
-    targetRevision: v0.4.1
+    targetRevision: master
     path: 'deployment/sqlbee'
   syncPolicy:
     automated:
