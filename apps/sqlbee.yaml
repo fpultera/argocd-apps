@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/connctd/sqlbee'
     targetRevision: v0.4.1
-    path: /deployment/sqlbee
+    path: 'deployment/sqlbee'
   syncPolicy:
     automated:
       prune: true
