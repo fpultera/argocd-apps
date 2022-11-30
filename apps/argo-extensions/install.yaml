@@ -1,3 +1,4 @@
+# This is an auto-generated file. DO NOT EDIT
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
@@ -335,8 +336,8 @@ spec:
                           and is only valid for applications sourced from Git.
                         type: string
                       plugin:
-                        description: Plugin holds config management plugin specific
-                          options
+                        description: ConfigManagementPlugin holds config management
+                          plugin specific options
                         properties:
                           env:
                             description: Env is a list of environment variable entries
@@ -681,7 +682,8 @@ spec:
                       and is only valid for applications sourced from Git.
                     type: string
                   plugin:
-                    description: Plugin holds config management plugin specific options
+                    description: ConfigManagementPlugin holds config management plugin
+                      specific options
                     properties:
                       env:
                         description: Env is a list of environment variable entries
@@ -1036,8 +1038,8 @@ spec:
                             and is only valid for applications sourced from Git.
                           type: string
                         plugin:
-                          description: Plugin holds config management plugin specific
-                            options
+                          description: ConfigManagementPlugin holds config management
+                            plugin specific options
                           properties:
                             env:
                               description: Env is a list of environment variable entries
@@ -1408,8 +1410,8 @@ spec:
                                   from Git.
                                 type: string
                               plugin:
-                                description: Plugin holds config management plugin
-                                  specific options
+                                description: ConfigManagementPlugin holds config management
+                                  plugin specific options
                                 properties:
                                   env:
                                     description: Env is a list of environment variable
@@ -1752,8 +1754,8 @@ spec:
                               and is only valid for applications sourced from Git.
                             type: string
                           plugin:
-                            description: Plugin holds config management plugin specific
-                              options
+                            description: ConfigManagementPlugin holds config management
+                              plugin specific options
                             properties:
                               env:
                                 description: Env is a list of environment variable
@@ -1804,10 +1806,6 @@ spec:
                   reconciled using the latest git version
                 format: date-time
                 type: string
-              resourceHealthSource:
-                description: 'ResourceHealthSource indicates where the resource health
-                  status is stored: inline if not set or appTree'
-                type: string
               resources:
                 description: Resources is a list of Kubernetes resources managed by
                   this application
@@ -1844,9 +1842,6 @@ spec:
                       description: SyncStatusCode is a type which represents possible
                         comparison results
                       type: string
-                    syncWave:
-                      format: int64
-                      type: integer
                     version:
                       type: string
                   type: object
@@ -2093,8 +2088,8 @@ spec:
                               and is only valid for applications sourced from Git.
                             type: string
                           plugin:
-                            description: Plugin holds config management plugin specific
-                              options
+                            description: ConfigManagementPlugin holds config management
+                              plugin specific options
                             properties:
                               env:
                                 description: Env is a list of environment variable
@@ -2160,7 +2155,6 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/name: applicationsets.argoproj.io
-    app.kubernetes.io/part-of: argocd
   name: applicationsets.argoproj.io
 spec:
   group: argoproj.io
@@ -4529,8 +4523,6 @@ spec:
                                     properties:
                                       api:
                                         type: string
-                                      appSecretName:
-                                        type: string
                                       labels:
                                         items:
                                           type: string
@@ -4552,31 +4544,6 @@ spec:
                                     required:
                                     - owner
                                     - repo
-                                    type: object
-                                  gitlab:
-                                    properties:
-                                      api:
-                                        type: string
-                                      labels:
-                                        items:
-                                          type: string
-                                        type: array
-                                      project:
-                                        type: string
-                                      pullRequestState:
-                                        type: string
-                                      tokenRef:
-                                        properties:
-                                          key:
-                                            type: string
-                                          secretName:
-                                            type: string
-                                        required:
-                                        - key
-                                        - secretName
-                                        type: object
-                                    required:
-                                    - project
                                     type: object
                                   requeueAfterSeconds:
                                     format: int64
@@ -4839,31 +4806,6 @@ spec:
                                 type: object
                               scmProvider:
                                 properties:
-                                  azureDevOps:
-                                    properties:
-                                      accessTokenRef:
-                                        properties:
-                                          key:
-                                            type: string
-                                          secretName:
-                                            type: string
-                                        required:
-                                        - key
-                                        - secretName
-                                        type: object
-                                      allBranches:
-                                        type: boolean
-                                      api:
-                                        type: string
-                                      organization:
-                                        type: string
-                                      teamProject:
-                                        type: string
-                                    required:
-                                    - accessTokenRef
-                                    - organization
-                                    - teamProject
-                                    type: object
                                   bitbucket:
                                     properties:
                                       allBranches:
@@ -4967,8 +4909,6 @@ spec:
                                       allBranches:
                                         type: boolean
                                       api:
-                                        type: string
-                                      appSecretName:
                                         type: string
                                       organization:
                                         type: string
@@ -5265,29 +5205,6 @@ spec:
                                     required:
                                     - metadata
                                     - spec
-                                    type: object
-                                type: object
-                              selector:
-                                properties:
-                                  matchExpressions:
-                                    items:
-                                      properties:
-                                        key:
-                                          type: string
-                                        operator:
-                                          type: string
-                                        values:
-                                          items:
-                                            type: string
-                                          type: array
-                                      required:
-                                      - key
-                                      - operator
-                                      type: object
-                                    type: array
-                                  matchLabels:
-                                    additionalProperties:
-                                      type: string
                                     type: object
                                 type: object
                             type: object
@@ -6759,8 +6676,6 @@ spec:
                                     properties:
                                       api:
                                         type: string
-                                      appSecretName:
-                                        type: string
                                       labels:
                                         items:
                                           type: string
@@ -6782,31 +6697,6 @@ spec:
                                     required:
                                     - owner
                                     - repo
-                                    type: object
-                                  gitlab:
-                                    properties:
-                                      api:
-                                        type: string
-                                      labels:
-                                        items:
-                                          type: string
-                                        type: array
-                                      project:
-                                        type: string
-                                      pullRequestState:
-                                        type: string
-                                      tokenRef:
-                                        properties:
-                                          key:
-                                            type: string
-                                          secretName:
-                                            type: string
-                                        required:
-                                        - key
-                                        - secretName
-                                        type: object
-                                    required:
-                                    - project
                                     type: object
                                   requeueAfterSeconds:
                                     format: int64
@@ -7069,31 +6959,6 @@ spec:
                                 type: object
                               scmProvider:
                                 properties:
-                                  azureDevOps:
-                                    properties:
-                                      accessTokenRef:
-                                        properties:
-                                          key:
-                                            type: string
-                                          secretName:
-                                            type: string
-                                        required:
-                                        - key
-                                        - secretName
-                                        type: object
-                                      allBranches:
-                                        type: boolean
-                                      api:
-                                        type: string
-                                      organization:
-                                        type: string
-                                      teamProject:
-                                        type: string
-                                    required:
-                                    - accessTokenRef
-                                    - organization
-                                    - teamProject
-                                    type: object
                                   bitbucket:
                                     properties:
                                       allBranches:
@@ -7197,8 +7062,6 @@ spec:
                                       allBranches:
                                         type: boolean
                                       api:
-                                        type: string
-                                      appSecretName:
                                         type: string
                                       organization:
                                         type: string
@@ -7495,29 +7358,6 @@ spec:
                                     required:
                                     - metadata
                                     - spec
-                                    type: object
-                                type: object
-                              selector:
-                                properties:
-                                  matchExpressions:
-                                    items:
-                                      properties:
-                                        key:
-                                          type: string
-                                        operator:
-                                          type: string
-                                        values:
-                                          items:
-                                            type: string
-                                          type: array
-                                      required:
-                                      - key
-                                      - operator
-                                      type: object
-                                    type: array
-                                  matchLabels:
-                                    additionalProperties:
-                                      type: string
                                     type: object
                                 type: object
                             type: object
@@ -7854,8 +7694,6 @@ spec:
                           properties:
                             api:
                               type: string
-                            appSecretName:
-                              type: string
                             labels:
                               items:
                                 type: string
@@ -7877,31 +7715,6 @@ spec:
                           required:
                           - owner
                           - repo
-                          type: object
-                        gitlab:
-                          properties:
-                            api:
-                              type: string
-                            labels:
-                              items:
-                                type: string
-                              type: array
-                            project:
-                              type: string
-                            pullRequestState:
-                              type: string
-                            tokenRef:
-                              properties:
-                                key:
-                                  type: string
-                                secretName:
-                                  type: string
-                              required:
-                              - key
-                              - secretName
-                              type: object
-                          required:
-                          - project
                           type: object
                         requeueAfterSeconds:
                           format: int64
@@ -8164,31 +7977,6 @@ spec:
                       type: object
                     scmProvider:
                       properties:
-                        azureDevOps:
-                          properties:
-                            accessTokenRef:
-                              properties:
-                                key:
-                                  type: string
-                                secretName:
-                                  type: string
-                              required:
-                              - key
-                              - secretName
-                              type: object
-                            allBranches:
-                              type: boolean
-                            api:
-                              type: string
-                            organization:
-                              type: string
-                            teamProject:
-                              type: string
-                          required:
-                          - accessTokenRef
-                          - organization
-                          - teamProject
-                          type: object
                         bitbucket:
                           properties:
                             allBranches:
@@ -8292,8 +8080,6 @@ spec:
                             allBranches:
                               type: boolean
                             api:
-                              type: string
-                            appSecretName:
                               type: string
                             organization:
                               type: string
@@ -8592,33 +8378,8 @@ spec:
                           - spec
                           type: object
                       type: object
-                    selector:
-                      properties:
-                        matchExpressions:
-                          items:
-                            properties:
-                              key:
-                                type: string
-                              operator:
-                                type: string
-                              values:
-                                items:
-                                  type: string
-                                type: array
-                            required:
-                            - key
-                            - operator
-                            type: object
-                          type: array
-                        matchLabels:
-                          additionalProperties:
-                            type: string
-                          type: object
-                      type: object
                   type: object
                 type: array
-              goTemplate:
-                type: boolean
               syncPolicy:
                 properties:
                   preserveResourcesOnDeletion:
@@ -9077,10 +8838,6 @@ spec:
                       for apps which have orphaned resources
                     type: boolean
                 type: object
-              permitOnlyProjectScopedClusters:
-                description: PermitOnlyProjectScopedClusters determines whether destinations
-                  can only reference clusters which are project-scoped
-                type: boolean
               roles:
                 description: Roles are user defined RBAC roles associated with this
                   project
@@ -9142,12 +8899,6 @@ spec:
                   required:
                   - keyID
                   type: object
-                type: array
-              sourceNamespaces:
-                description: SourceNamespaces defines the namespaces application resources
-                  are allowed to be created in
-                items:
-                  type: string
                 type: array
               sourceRepos:
                 description: SourceRepos contains list of repository URLs which can
@@ -9239,107 +8990,6 @@ spec:
     served: true
     storage: true
 ---
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  annotations:
-    controller-gen.kubebuilder.io/version: v0.4.1
-  creationTimestamp: null
-  name: argocdextensions.argoproj.io
-spec:
-  group: argoproj.io
-  names:
-    kind: ArgoCDExtension
-    listKind: ArgoCDExtensionList
-    plural: argocdextensions
-    singular: argocdextension
-  scope: Namespaced
-  versions:
-  - name: v1alpha1
-    schema:
-      openAPIV3Schema:
-        description: ArgoCDExtension is the Schema for the argocdextensions API
-        properties:
-          apiVersion:
-            description: 'APIVersion defines the versioned schema of this representation
-              of an object. Servers should convert recognized schemas to the latest
-              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
-            type: string
-          kind:
-            description: 'Kind is a string value representing the REST resource this
-              object represents. Servers may infer this from the endpoint the client
-              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
-            type: string
-          metadata:
-            type: object
-          spec:
-            description: ArgoCDExtensionSpec defines the desired state of ArgoCDExtension
-            properties:
-              sources:
-                description: Sources specifies where the extension should come from
-                items:
-                  description: ExtensionSource specifies where the extension should
-                    be sourced from
-                  properties:
-                    git:
-                      description: Git is specified if the extension should be sourced
-                        from a git repository
-                      properties:
-                        revision:
-                          description: Revision specifies the revision of the Repository
-                            to fetch
-                          type: string
-                        url:
-                          description: URL specifies the Git repository URL to fetch
-                          type: string
-                      type: object
-                    web:
-                      description: Web is specified if the extension should be sourced
-                        from a web file
-                      properties:
-                        url:
-                          description: URK specifies the remote file URL
-                          type: string
-                      type: object
-                  type: object
-                type: array
-            required:
-            - sources
-            type: object
-          status:
-            description: ArgoCDExtensionStatus defines the observed state of ArgoCDExtension
-            properties:
-              conditions:
-                items:
-                  properties:
-                    message:
-                      description: Message contains human-readable message indicating
-                        details about condition
-                      type: string
-                    status:
-                      description: Boolean status describing if the condition is currently
-                        true
-                      type: string
-                    type:
-                      description: Type is an ArgoCDExtension condition type
-                      type: string
-                  required:
-                  - message
-                  - status
-                  - type
-                  type: object
-                type: array
-            type: object
-        type: object
-    served: true
-    storage: true
-status:
-  acceptedNames:
-    kind: ""
-    plural: ""
-  conditions: []
-  storedVersions: []
----
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -9370,10 +9020,6 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  labels:
-    app.kubernetes.io/component: notifications-controller
-    app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/part-of: argocd
   name: argocd-notifications-controller
 ---
 apiVersion: v1
@@ -9381,18 +9027,9 @@ kind: ServiceAccount
 metadata:
   labels:
     app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
+    app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha-haproxy
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-haproxy
+  name: argocd-redis
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -9581,38 +9218,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - endpoints
-  verbs:
-  - get
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-haproxy
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - endpoints
-  verbs:
-  - get
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  labels:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
@@ -9636,7 +9241,6 @@ rules:
   resources:
   - applications
   - appprojects
-  - applicationsets
   verbs:
   - create
   - get
@@ -9652,28 +9256,6 @@ rules:
   verbs:
   - create
   - list
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  labels:
-    app.kubernetes.io/component: server
-    app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/part-of: argocd
-  name: argocd-server-extensions
-rules:
-- apiGroups:
-  - argoproj.io
-  resources:
-  - argocdextensions
-  verbs:
-  - create
-  - get
-  - list
-  - watch
-  - update
-  - delete
-  - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -9725,14 +9307,6 @@ rules:
   - pods/log
   verbs:
   - get
-- apiGroups:
-  - argoproj.io
-  resources:
-  - applications
-  verbs:
-  - get
-  - list
-  - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -9799,32 +9373,16 @@ kind: RoleBinding
 metadata:
   labels:
     app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
+    app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha
+  name: argocd-redis
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: argocd-redis-ha
+  name: argocd-redis
 subjects:
 - kind: ServiceAccount
-  name: argocd-redis-ha
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-haproxy
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: argocd-redis-ha-haproxy
-subjects:
-- kind: ServiceAccount
-  name: argocd-redis-ha-haproxy
+  name: argocd-redis
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -9838,22 +9396,6 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: argocd-server
-subjects:
-- kind: ServiceAccount
-  name: argocd-server
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  labels:
-    app.kubernetes.io/component: server
-    app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/part-of: argocd
-  name: argocd-server-extensions
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: argocd-server-extensions
 subjects:
 - kind: ServiceAccount
   name: argocd-server
@@ -9928,768 +9470,6 @@ metadata:
     app.kubernetes.io/name: argocd-rbac-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-rbac-cm
----
-apiVersion: v1
-data:
-  fix-split-brain.sh: |
-    HOSTNAME="$(hostname)"
-    INDEX="${HOSTNAME##*-}"
-    SENTINEL_PORT=26379
-    ANNOUNCE_IP=''
-    MASTER=''
-    MASTER_GROUP="argocd"
-    QUORUM="2"
-    REDIS_CONF=/data/conf/redis.conf
-    REDIS_PORT=6379
-    REDIS_TLS_PORT=
-    SENTINEL_CONF=/data/conf/sentinel.conf
-    SENTINEL_TLS_PORT=
-    SERVICE=argocd-redis-ha
-    SENTINEL_TLS_REPLICATION_ENABLED=false
-    REDIS_TLS_REPLICATION_ENABLED=false
-
-    ROLE=''
-    REDIS_MASTER=''
-
-    set -eu
-    sentinel_get_master() {
-    set +e
-        if [ "$SENTINEL_PORT" -eq 0 ]; then
-            redis-cli -h "${SERVICE}" -p "${SENTINEL_TLS_PORT}"   --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key sentinel get-master-addr-by-name "${MASTER_GROUP}" |\
-            grep -E '((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?s*$))'
-        else
-            redis-cli -h "${SERVICE}" -p "${SENTINEL_PORT}"  sentinel get-master-addr-by-name "${MASTER_GROUP}" |\
-            grep -E '((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?s*$))'
-        fi
-    set -e
-    }
-
-    sentinel_get_master_retry() {
-        master=''
-        retry=${1}
-        sleep=3
-        for i in $(seq 1 "${retry}"); do
-            master=$(sentinel_get_master)
-            if [ -n "${master}" ]; then
-                break
-            fi
-            sleep $((sleep + i))
-        done
-        echo "${master}"
-    }
-
-    identify_master() {
-        echo "Identifying redis master (get-master-addr-by-name).."
-        echo "  using sentinel (argocd-redis-ha), sentinel group name (argocd)"
-        MASTER="$(sentinel_get_master_retry 3)"
-        if [ -n "${MASTER}" ]; then
-            echo "  $(date) Found redis master (${MASTER})"
-        else
-            echo "  $(date) Did not find redis master (${MASTER})"
-        fi
-    }
-
-    sentinel_update() {
-        echo "Updating sentinel config.."
-        echo "  evaluating sentinel id (\${SENTINEL_ID_${INDEX}})"
-        eval MY_SENTINEL_ID="\$SENTINEL_ID_${INDEX}"
-        echo "  sentinel id (${MY_SENTINEL_ID}), sentinel grp (${MASTER_GROUP}), quorum (${QUORUM})"
-        sed -i "1s/^/sentinel myid ${MY_SENTINEL_ID}\\n/" "${SENTINEL_CONF}"
-        if [ "$SENTINEL_TLS_REPLICATION_ENABLED" = true ]; then
-            echo "  redis master (${1}:${REDIS_TLS_PORT})"
-            sed -i "2s/^/sentinel monitor ${MASTER_GROUP} ${1} ${REDIS_TLS_PORT} ${QUORUM} \\n/" "${SENTINEL_CONF}"
-        else
-            echo "  redis master (${1}:${REDIS_PORT})"
-            sed -i "2s/^/sentinel monitor ${MASTER_GROUP} ${1} ${REDIS_PORT} ${QUORUM} \\n/" "${SENTINEL_CONF}"
-        fi
-        echo "sentinel announce-ip ${ANNOUNCE_IP}" >> ${SENTINEL_CONF}
-        if [ "$SENTINEL_PORT" -eq 0 ]; then
-            echo "  announce (${ANNOUNCE_IP}:${SENTINEL_TLS_PORT})"
-            echo "sentinel announce-port ${SENTINEL_TLS_PORT}" >> ${SENTINEL_CONF}
-        else
-            echo "  announce (${ANNOUNCE_IP}:${SENTINEL_PORT})"
-            echo "sentinel announce-port ${SENTINEL_PORT}" >> ${SENTINEL_CONF}
-        fi
-    }
-
-    redis_update() {
-        echo "Updating redis config.."
-        if [ "$REDIS_TLS_REPLICATION_ENABLED" = true ]; then
-            echo "  we are slave of redis master (${1}:${REDIS_TLS_PORT})"
-            echo "slaveof ${1} ${REDIS_TLS_PORT}" >> "${REDIS_CONF}"
-            echo "slave-announce-port ${REDIS_TLS_PORT}" >> ${REDIS_CONF}
-        else
-            echo "  we are slave of redis master (${1}:${REDIS_PORT})"
-            echo "slaveof ${1} ${REDIS_PORT}" >> "${REDIS_CONF}"
-            echo "slave-announce-port ${REDIS_PORT}" >> ${REDIS_CONF}
-        fi
-        echo "slave-announce-ip ${ANNOUNCE_IP}" >> ${REDIS_CONF}
-    }
-
-    copy_config() {
-        echo "Copying default redis config.."
-        echo "  to '${REDIS_CONF}'"
-        cp /readonly-config/redis.conf "${REDIS_CONF}"
-        echo "Copying default sentinel config.."
-        echo "  to '${SENTINEL_CONF}'"
-        cp /readonly-config/sentinel.conf "${SENTINEL_CONF}"
-    }
-
-    setup_defaults() {
-        echo "Setting up defaults.."
-        echo "  using statefulset index (${INDEX})"
-        if [ "${INDEX}" = "0" ]; then
-            echo "Setting this pod as master for redis and sentinel.."
-            echo "  using announce (${ANNOUNCE_IP})"
-            redis_update "${ANNOUNCE_IP}"
-            sentinel_update "${ANNOUNCE_IP}"
-            echo "  make sure ${ANNOUNCE_IP} is not a slave (slaveof no one)"
-            sed -i "s/^.*slaveof.*//" "${REDIS_CONF}"
-        else
-            echo "Getting redis master ip.."
-            echo "  blindly assuming (${SERVICE}-announce-0) or (${SERVICE}-server-0) are master"
-            DEFAULT_MASTER="$(getent_hosts 0 | awk '{ print $1 }')"
-            if [ -z "${DEFAULT_MASTER}" ]; then
-                echo "Error: Unable to resolve redis master (getent hosts)."
-                exit 1
-            fi
-            echo "  identified redis (may be redis master) ip (${DEFAULT_MASTER})"
-            echo "Setting default slave config for redis and sentinel.."
-            echo "  using master ip (${DEFAULT_MASTER})"
-            redis_update "${DEFAULT_MASTER}"
-            sentinel_update "${DEFAULT_MASTER}"
-        fi
-    }
-
-    redis_ping() {
-    set +e
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            redis-cli -h "${MASTER}" -p "${REDIS_TLS_PORT}"  --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key ping
-        else
-            redis-cli -h "${MASTER}" -p "${REDIS_PORT}" ping
-        fi
-    set -e
-    }
-
-    redis_ping_retry() {
-        ping=''
-        retry=${1}
-        sleep=3
-        for i in $(seq 1 "${retry}"); do
-            if [ "$(redis_ping)" = "PONG" ]; then
-               ping='PONG'
-               break
-            fi
-            sleep $((sleep + i))
-            MASTER=$(sentinel_get_master)
-        done
-        echo "${ping}"
-    }
-
-    find_master() {
-        echo "Verifying redis master.."
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            echo "  ping (${MASTER}:${REDIS_TLS_PORT})"
-        else
-            echo "  ping (${MASTER}:${REDIS_PORT})"
-        fi
-        if [ "$(redis_ping_retry 3)" != "PONG" ]; then
-            echo "  $(date) Can't ping redis master (${MASTER})"
-            echo "Attempting to force failover (sentinel failover).."
-
-            if [ "$SENTINEL_PORT" -eq 0 ]; then
-                echo "  on sentinel (${SERVICE}:${SENTINEL_TLS_PORT}), sentinel grp (${MASTER_GROUP})"
-                if redis-cli -h "${SERVICE}" -p "${SENTINEL_TLS_PORT}"   --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key sentinel failover "${MASTER_GROUP}" | grep -q 'NOGOODSLAVE' ; then
-                    echo "  $(date) Failover returned with 'NOGOODSLAVE'"
-                    echo "Setting defaults for this pod.."
-                    setup_defaults
-                    return 0
-                fi
-            else
-                echo "  on sentinel (${SERVICE}:${SENTINEL_PORT}), sentinel grp (${MASTER_GROUP})"
-                if redis-cli -h "${SERVICE}" -p "${SENTINEL_PORT}"  sentinel failover "${MASTER_GROUP}" | grep -q 'NOGOODSLAVE' ; then
-                    echo "  $(date) Failover returned with 'NOGOODSLAVE'"
-                    echo "Setting defaults for this pod.."
-                    setup_defaults
-                    return 0
-                fi
-            fi
-
-            echo "Hold on for 10sec"
-            sleep 10
-            echo "We should get redis master's ip now. Asking (get-master-addr-by-name).."
-            if [ "$SENTINEL_PORT" -eq 0 ]; then
-                echo "  sentinel (${SERVICE}:${SENTINEL_TLS_PORT}), sentinel grp (${MASTER_GROUP})"
-            else
-                echo "  sentinel (${SERVICE}:${SENTINEL_PORT}), sentinel grp (${MASTER_GROUP})"
-            fi
-            MASTER="$(sentinel_get_master)"
-            if [ "${MASTER}" ]; then
-                echo "  $(date) Found redis master (${MASTER})"
-                echo "Updating redis and sentinel config.."
-                sentinel_update "${MASTER}"
-                redis_update "${MASTER}"
-            else
-                echo "$(date) Error: Could not failover, exiting..."
-                exit 1
-            fi
-        else
-            echo "  $(date) Found reachable redis master (${MASTER})"
-            echo "Updating redis and sentinel config.."
-            sentinel_update "${MASTER}"
-            redis_update "${MASTER}"
-        fi
-    }
-
-    redis_ro_update() {
-        echo "Updating read-only redis config.."
-        echo "  redis.conf set 'replica-priority 0'"
-        echo "replica-priority 0" >> ${REDIS_CONF}
-    }
-
-    getent_hosts() {
-        index=${1:-${INDEX}}
-        service="${SERVICE}-announce-${index}"
-        host=$(getent hosts "${service}")
-        echo "${host}"
-    }
-
-    identify_announce_ip() {
-        echo "Identify announce ip for this pod.."
-        echo "  using (${SERVICE}-announce-${INDEX}) or (${SERVICE}-server-${INDEX})"
-        ANNOUNCE_IP=$(getent_hosts | awk '{ print $1 }')
-        echo "  identified announce (${ANNOUNCE_IP})"
-    }
-
-    redis_role() {
-    set +e
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            ROLE=$(redis-cli  -p "${REDIS_TLS_PORT}"  --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key info | grep role | sed 's/role://' | sed 's/\r//')
-        else
-            ROLE=$(redis-cli  -p "${REDIS_PORT}" info | grep role | sed 's/role://' | sed 's/\r//')
-        fi
-    set -e
-    }
-
-    identify_redis_master() {
-    set +e
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            REDIS_MASTER=$(redis-cli  -p "${REDIS_TLS_PORT}"  --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key info | grep master_host | sed 's/master_host://' | sed 's/\r//')
-        else
-            REDIS_MASTER=$(redis-cli  -p "${REDIS_PORT}" info | grep master_host | sed 's/master_host://' | sed 's/\r//')
-        fi
-    set -e
-    }
-
-    reinit() {
-    set +e
-        sh /readonly-config/init.sh
-
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            echo "shutdown" | redis-cli  -p "${REDIS_TLS_PORT}"  --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key
-        else
-            echo "shutdown" | redis-cli  -p "${REDIS_PORT}"
-        fi
-    set -e
-    }
-
-    identify_announce_ip
-
-    while [ -z "${ANNOUNCE_IP}" ]; do
-        echo "Error: Could not resolve the announce ip for this pod."
-        sleep 30
-        identify_announce_ip
-    done
-
-    while true; do
-        sleep 60
-
-        # where is redis master
-        identify_master
-
-        if [ "$MASTER" = "$ANNOUNCE_IP" ]; then
-            redis_role
-            if [ "$ROLE" != "master" ]; then
-                reinit
-            fi
-        elif [ "${MASTER}" ]; then
-            identify_redis_master
-            if [ "$REDIS_MASTER" != "$MASTER" ]; then
-                reinit
-            fi
-        fi
-    done
-  haproxy.cfg: |
-    defaults REDIS
-      mode tcp
-      timeout connect 4s
-      timeout server 6m
-      timeout client 6m
-      timeout check 2s
-
-    listen health_check_http_url
-      bind [::]:8888  v4v6
-      mode http
-      monitor-uri /healthz
-      option      dontlognull
-    # Check Sentinel and whether they are nominated master
-    backend check_if_redis_is_master_0
-      mode tcp
-      option tcp-check
-      tcp-check connect
-      tcp-check send PING\r\n
-      tcp-check expect string +PONG
-      tcp-check send SENTINEL\ get-master-addr-by-name\ argocd\r\n
-      tcp-check expect string REPLACE_ANNOUNCE0
-      tcp-check send QUIT\r\n
-      server R0 argocd-redis-ha-announce-0:26379 check inter 3s
-      server R1 argocd-redis-ha-announce-1:26379 check inter 3s
-      server R2 argocd-redis-ha-announce-2:26379 check inter 3s
-    # Check Sentinel and whether they are nominated master
-    backend check_if_redis_is_master_1
-      mode tcp
-      option tcp-check
-      tcp-check connect
-      tcp-check send PING\r\n
-      tcp-check expect string +PONG
-      tcp-check send SENTINEL\ get-master-addr-by-name\ argocd\r\n
-      tcp-check expect string REPLACE_ANNOUNCE1
-      tcp-check send QUIT\r\n
-      server R0 argocd-redis-ha-announce-0:26379 check inter 3s
-      server R1 argocd-redis-ha-announce-1:26379 check inter 3s
-      server R2 argocd-redis-ha-announce-2:26379 check inter 3s
-    # Check Sentinel and whether they are nominated master
-    backend check_if_redis_is_master_2
-      mode tcp
-      option tcp-check
-      tcp-check connect
-      tcp-check send PING\r\n
-      tcp-check expect string +PONG
-      tcp-check send SENTINEL\ get-master-addr-by-name\ argocd\r\n
-      tcp-check expect string REPLACE_ANNOUNCE2
-      tcp-check send QUIT\r\n
-      server R0 argocd-redis-ha-announce-0:26379 check inter 3s
-      server R1 argocd-redis-ha-announce-1:26379 check inter 3s
-      server R2 argocd-redis-ha-announce-2:26379 check inter 3s
-
-    # decide redis backend to use
-    #master
-    frontend ft_redis_master
-      bind [::]:6379 v4v6
-      use_backend bk_redis_master
-    # Check all redis servers to see if they think they are master
-    backend bk_redis_master
-      mode tcp
-      option tcp-check
-      tcp-check connect
-      tcp-check send PING\r\n
-      tcp-check expect string +PONG
-      tcp-check send info\ replication\r\n
-      tcp-check expect string role:master
-      tcp-check send QUIT\r\n
-      tcp-check expect string +OK
-      use-server R0 if { srv_is_up(R0) } { nbsrv(check_if_redis_is_master_0) ge 2 }
-      server R0 argocd-redis-ha-announce-0:6379 check inter 3s fall 1 rise 1
-      use-server R1 if { srv_is_up(R1) } { nbsrv(check_if_redis_is_master_1) ge 2 }
-      server R1 argocd-redis-ha-announce-1:6379 check inter 3s fall 1 rise 1
-      use-server R2 if { srv_is_up(R2) } { nbsrv(check_if_redis_is_master_2) ge 2 }
-      server R2 argocd-redis-ha-announce-2:6379 check inter 3s fall 1 rise 1
-  haproxy_init.sh: |
-    HAPROXY_CONF=/data/haproxy.cfg
-    cp /readonly/haproxy.cfg "$HAPROXY_CONF"
-    for loop in $(seq 1 10); do
-      getent hosts argocd-redis-ha-announce-0 && break
-      echo "Waiting for service argocd-redis-ha-announce-0 to be ready ($loop) ..." && sleep 1
-    done
-    ANNOUNCE_IP0=$(getent hosts "argocd-redis-ha-announce-0" | awk '{ print $1 }')
-    if [ -z "$ANNOUNCE_IP0" ]; then
-      echo "Could not resolve the announce ip for argocd-redis-ha-announce-0"
-      exit 1
-    fi
-    sed -i "s/REPLACE_ANNOUNCE0/$ANNOUNCE_IP0/" "$HAPROXY_CONF"
-    for loop in $(seq 1 10); do
-      getent hosts argocd-redis-ha-announce-1 && break
-      echo "Waiting for service argocd-redis-ha-announce-1 to be ready ($loop) ..." && sleep 1
-    done
-    ANNOUNCE_IP1=$(getent hosts "argocd-redis-ha-announce-1" | awk '{ print $1 }')
-    if [ -z "$ANNOUNCE_IP1" ]; then
-      echo "Could not resolve the announce ip for argocd-redis-ha-announce-1"
-      exit 1
-    fi
-    sed -i "s/REPLACE_ANNOUNCE1/$ANNOUNCE_IP1/" "$HAPROXY_CONF"
-    for loop in $(seq 1 10); do
-      getent hosts argocd-redis-ha-announce-2 && break
-      echo "Waiting for service argocd-redis-ha-announce-2 to be ready ($loop) ..." && sleep 1
-    done
-    ANNOUNCE_IP2=$(getent hosts "argocd-redis-ha-announce-2" | awk '{ print $1 }')
-    if [ -z "$ANNOUNCE_IP2" ]; then
-      echo "Could not resolve the announce ip for argocd-redis-ha-announce-2"
-      exit 1
-    fi
-    sed -i "s/REPLACE_ANNOUNCE2/$ANNOUNCE_IP2/" "$HAPROXY_CONF"
-  init.sh: |
-    echo "$(date) Start..."
-    HOSTNAME="$(hostname)"
-    INDEX="${HOSTNAME##*-}"
-    SENTINEL_PORT=26379
-    ANNOUNCE_IP=''
-    MASTER=''
-    MASTER_GROUP="argocd"
-    QUORUM="2"
-    REDIS_CONF=/data/conf/redis.conf
-    REDIS_PORT=6379
-    REDIS_TLS_PORT=
-    SENTINEL_CONF=/data/conf/sentinel.conf
-    SENTINEL_TLS_PORT=
-    SERVICE=argocd-redis-ha
-    SENTINEL_TLS_REPLICATION_ENABLED=false
-    REDIS_TLS_REPLICATION_ENABLED=false
-
-    set -eu
-    sentinel_get_master() {
-    set +e
-        if [ "$SENTINEL_PORT" -eq 0 ]; then
-            redis-cli -h "${SERVICE}" -p "${SENTINEL_TLS_PORT}"   --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key sentinel get-master-addr-by-name "${MASTER_GROUP}" |\
-            grep -E '((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?s*$))'
-        else
-            redis-cli -h "${SERVICE}" -p "${SENTINEL_PORT}"  sentinel get-master-addr-by-name "${MASTER_GROUP}" |\
-            grep -E '((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?s*$))'
-        fi
-    set -e
-    }
-
-    sentinel_get_master_retry() {
-        master=''
-        retry=${1}
-        sleep=3
-        for i in $(seq 1 "${retry}"); do
-            master=$(sentinel_get_master)
-            if [ -n "${master}" ]; then
-                break
-            fi
-            sleep $((sleep + i))
-        done
-        echo "${master}"
-    }
-
-    identify_master() {
-        echo "Identifying redis master (get-master-addr-by-name).."
-        echo "  using sentinel (argocd-redis-ha), sentinel group name (argocd)"
-        MASTER="$(sentinel_get_master_retry 3)"
-        if [ -n "${MASTER}" ]; then
-            echo "  $(date) Found redis master (${MASTER})"
-        else
-            echo "  $(date) Did not find redis master (${MASTER})"
-        fi
-    }
-
-    sentinel_update() {
-        echo "Updating sentinel config.."
-        echo "  evaluating sentinel id (\${SENTINEL_ID_${INDEX}})"
-        eval MY_SENTINEL_ID="\$SENTINEL_ID_${INDEX}"
-        echo "  sentinel id (${MY_SENTINEL_ID}), sentinel grp (${MASTER_GROUP}), quorum (${QUORUM})"
-        sed -i "1s/^/sentinel myid ${MY_SENTINEL_ID}\\n/" "${SENTINEL_CONF}"
-        if [ "$SENTINEL_TLS_REPLICATION_ENABLED" = true ]; then
-            echo "  redis master (${1}:${REDIS_TLS_PORT})"
-            sed -i "2s/^/sentinel monitor ${MASTER_GROUP} ${1} ${REDIS_TLS_PORT} ${QUORUM} \\n/" "${SENTINEL_CONF}"
-        else
-            echo "  redis master (${1}:${REDIS_PORT})"
-            sed -i "2s/^/sentinel monitor ${MASTER_GROUP} ${1} ${REDIS_PORT} ${QUORUM} \\n/" "${SENTINEL_CONF}"
-        fi
-        echo "sentinel announce-ip ${ANNOUNCE_IP}" >> ${SENTINEL_CONF}
-        if [ "$SENTINEL_PORT" -eq 0 ]; then
-            echo "  announce (${ANNOUNCE_IP}:${SENTINEL_TLS_PORT})"
-            echo "sentinel announce-port ${SENTINEL_TLS_PORT}" >> ${SENTINEL_CONF}
-        else
-            echo "  announce (${ANNOUNCE_IP}:${SENTINEL_PORT})"
-            echo "sentinel announce-port ${SENTINEL_PORT}" >> ${SENTINEL_CONF}
-        fi
-    }
-
-    redis_update() {
-        echo "Updating redis config.."
-        if [ "$REDIS_TLS_REPLICATION_ENABLED" = true ]; then
-            echo "  we are slave of redis master (${1}:${REDIS_TLS_PORT})"
-            echo "slaveof ${1} ${REDIS_TLS_PORT}" >> "${REDIS_CONF}"
-            echo "slave-announce-port ${REDIS_TLS_PORT}" >> ${REDIS_CONF}
-        else
-            echo "  we are slave of redis master (${1}:${REDIS_PORT})"
-            echo "slaveof ${1} ${REDIS_PORT}" >> "${REDIS_CONF}"
-            echo "slave-announce-port ${REDIS_PORT}" >> ${REDIS_CONF}
-        fi
-        echo "slave-announce-ip ${ANNOUNCE_IP}" >> ${REDIS_CONF}
-    }
-
-    copy_config() {
-        echo "Copying default redis config.."
-        echo "  to '${REDIS_CONF}'"
-        cp /readonly-config/redis.conf "${REDIS_CONF}"
-        echo "Copying default sentinel config.."
-        echo "  to '${SENTINEL_CONF}'"
-        cp /readonly-config/sentinel.conf "${SENTINEL_CONF}"
-    }
-
-    setup_defaults() {
-        echo "Setting up defaults.."
-        echo "  using statefulset index (${INDEX})"
-        if [ "${INDEX}" = "0" ]; then
-            echo "Setting this pod as master for redis and sentinel.."
-            echo "  using announce (${ANNOUNCE_IP})"
-            redis_update "${ANNOUNCE_IP}"
-            sentinel_update "${ANNOUNCE_IP}"
-            echo "  make sure ${ANNOUNCE_IP} is not a slave (slaveof no one)"
-            sed -i "s/^.*slaveof.*//" "${REDIS_CONF}"
-        else
-            echo "Getting redis master ip.."
-            echo "  blindly assuming (${SERVICE}-announce-0) or (${SERVICE}-server-0) are master"
-            DEFAULT_MASTER="$(getent_hosts 0 | awk '{ print $1 }')"
-            if [ -z "${DEFAULT_MASTER}" ]; then
-                echo "Error: Unable to resolve redis master (getent hosts)."
-                exit 1
-            fi
-            echo "  identified redis (may be redis master) ip (${DEFAULT_MASTER})"
-            echo "Setting default slave config for redis and sentinel.."
-            echo "  using master ip (${DEFAULT_MASTER})"
-            redis_update "${DEFAULT_MASTER}"
-            sentinel_update "${DEFAULT_MASTER}"
-        fi
-    }
-
-    redis_ping() {
-    set +e
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            redis-cli -h "${MASTER}" -p "${REDIS_TLS_PORT}"  --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key ping
-        else
-            redis-cli -h "${MASTER}" -p "${REDIS_PORT}" ping
-        fi
-    set -e
-    }
-
-    redis_ping_retry() {
-        ping=''
-        retry=${1}
-        sleep=3
-        for i in $(seq 1 "${retry}"); do
-            if [ "$(redis_ping)" = "PONG" ]; then
-               ping='PONG'
-               break
-            fi
-            sleep $((sleep + i))
-            MASTER=$(sentinel_get_master)
-        done
-        echo "${ping}"
-    }
-
-    find_master() {
-        echo "Verifying redis master.."
-        if [ "$REDIS_PORT" -eq 0 ]; then
-            echo "  ping (${MASTER}:${REDIS_TLS_PORT})"
-        else
-            echo "  ping (${MASTER}:${REDIS_PORT})"
-        fi
-        if [ "$(redis_ping_retry 3)" != "PONG" ]; then
-            echo "  $(date) Can't ping redis master (${MASTER})"
-            echo "Attempting to force failover (sentinel failover).."
-
-            if [ "$SENTINEL_PORT" -eq 0 ]; then
-                echo "  on sentinel (${SERVICE}:${SENTINEL_TLS_PORT}), sentinel grp (${MASTER_GROUP})"
-                if redis-cli -h "${SERVICE}" -p "${SENTINEL_TLS_PORT}"   --tls --cacert /tls-certs/ca.crt --cert /tls-certs/redis.crt --key /tls-certs/redis.key sentinel failover "${MASTER_GROUP}" | grep -q 'NOGOODSLAVE' ; then
-                    echo "  $(date) Failover returned with 'NOGOODSLAVE'"
-                    echo "Setting defaults for this pod.."
-                    setup_defaults
-                    return 0
-                fi
-            else
-                echo "  on sentinel (${SERVICE}:${SENTINEL_PORT}), sentinel grp (${MASTER_GROUP})"
-                if redis-cli -h "${SERVICE}" -p "${SENTINEL_PORT}"  sentinel failover "${MASTER_GROUP}" | grep -q 'NOGOODSLAVE' ; then
-                    echo "  $(date) Failover returned with 'NOGOODSLAVE'"
-                    echo "Setting defaults for this pod.."
-                    setup_defaults
-                    return 0
-                fi
-            fi
-
-            echo "Hold on for 10sec"
-            sleep 10
-            echo "We should get redis master's ip now. Asking (get-master-addr-by-name).."
-            if [ "$SENTINEL_PORT" -eq 0 ]; then
-                echo "  sentinel (${SERVICE}:${SENTINEL_TLS_PORT}), sentinel grp (${MASTER_GROUP})"
-            else
-                echo "  sentinel (${SERVICE}:${SENTINEL_PORT}), sentinel grp (${MASTER_GROUP})"
-            fi
-            MASTER="$(sentinel_get_master)"
-            if [ "${MASTER}" ]; then
-                echo "  $(date) Found redis master (${MASTER})"
-                echo "Updating redis and sentinel config.."
-                sentinel_update "${MASTER}"
-                redis_update "${MASTER}"
-            else
-                echo "$(date) Error: Could not failover, exiting..."
-                exit 1
-            fi
-        else
-            echo "  $(date) Found reachable redis master (${MASTER})"
-            echo "Updating redis and sentinel config.."
-            sentinel_update "${MASTER}"
-            redis_update "${MASTER}"
-        fi
-    }
-
-    redis_ro_update() {
-        echo "Updating read-only redis config.."
-        echo "  redis.conf set 'replica-priority 0'"
-        echo "replica-priority 0" >> ${REDIS_CONF}
-    }
-
-    getent_hosts() {
-        index=${1:-${INDEX}}
-        service="${SERVICE}-announce-${index}"
-        host=$(getent hosts "${service}")
-        echo "${host}"
-    }
-
-    identify_announce_ip() {
-        echo "Identify announce ip for this pod.."
-        echo "  using (${SERVICE}-announce-${INDEX}) or (${SERVICE}-server-${INDEX})"
-        ANNOUNCE_IP=$(getent_hosts | awk '{ print $1 }')
-        echo "  identified announce (${ANNOUNCE_IP})"
-    }
-
-    mkdir -p /data/conf/
-
-    echo "Initializing config.."
-    copy_config
-
-    # where is redis master
-    identify_master
-
-    identify_announce_ip
-
-    if [ -z "${ANNOUNCE_IP}" ]; then
-        "Error: Could not resolve the announce ip for this pod."
-        exit 1
-    elif [ "${MASTER}" ]; then
-        find_master
-    else
-        setup_defaults
-    fi
-
-    if [ "${AUTH:-}" ]; then
-        echo "Setting redis auth values.."
-        ESCAPED_AUTH=$(echo "${AUTH}" | sed -e 's/[\/&]/\\&/g');
-        sed -i "s/replace-default-auth/${ESCAPED_AUTH}/" "${REDIS_CONF}" "${SENTINEL_CONF}"
-    fi
-
-    if [ "${SENTINELAUTH:-}" ]; then
-        echo "Setting sentinel auth values"
-        ESCAPED_AUTH_SENTINEL=$(echo "$SENTINELAUTH" | sed -e 's/[\/&]/\\&/g');
-        sed -i "s/replace-default-sentinel-auth/${ESCAPED_AUTH_SENTINEL}/" "$SENTINEL_CONF"
-    fi
-
-    echo "$(date) Ready..."
-  redis.conf: |
-    dir "/data"
-    port 6379
-    rename-command FLUSHDB ""
-    rename-command FLUSHALL ""
-    maxmemory 0
-    maxmemory-policy volatile-lru
-    min-replicas-max-lag 5
-    min-replicas-to-write 1
-    rdbchecksum yes
-    rdbcompression yes
-    repl-diskless-sync yes
-    save ""
-  sentinel.conf: |
-    dir "/data"
-    port 26379
-        sentinel down-after-milliseconds argocd 10000
-        sentinel failover-timeout argocd 180000
-        maxclients 10000
-        sentinel parallel-syncs argocd 5
-  trigger-failover-if-master.sh: |
-    get_redis_role() {
-      is_master=$(
-        redis-cli \
-          -h localhost \
-          -p 6379 \
-          info | grep -c 'role:master' || true
-      )
-    }
-    get_redis_role
-    if [[ "$is_master" -eq 1 ]]; then
-      echo "This node is currently master, we trigger a failover."
-      response=$(
-        redis-cli \
-          -h localhost \
-          -p 26379 \
-          SENTINEL failover argocd
-      )
-      if [[ "$response" != "OK" ]] ; then
-        echo "$response"
-        exit 1
-      fi
-      timeout=30
-      while [[ "$is_master" -eq 1 && $timeout -gt 0 ]]; do
-        sleep 1
-        get_redis_role
-        timeout=$((timeout - 1))
-      done
-      echo "Failover successful"
-    fi
-kind: ConfigMap
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-configmap
----
-apiVersion: v1
-data:
-  redis_liveness.sh: |
-    response=$(
-      redis-cli \
-        -h localhost \
-        -p 6379 \
-        ping
-    )
-    if [ "$response" != "PONG" ] && [ "${response:0:7}" != "LOADING" ] ; then
-      echo "$response"
-      exit 1
-    fi
-    echo "response=$response"
-  redis_readiness.sh: |
-    response=$(
-      redis-cli \
-        -h localhost \
-        -p 6379 \
-        ping
-    )
-    if [ "$response" != "PONG" ] ; then
-      echo "$response"
-      exit 1
-    fi
-    echo "response=$response"
-  sentinel_liveness.sh: |
-    response=$(
-      redis-cli \
-        -h localhost \
-        -p 26379 \
-        ping
-    )
-    if [ "$response" != "PONG" ]; then
-      echo "$response"
-      exit 1
-    fi
-    echo "response=$response"
-kind: ConfigMap
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-health-configmap
 ---
 apiVersion: v1
 data:
@@ -10816,119 +9596,16 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
+    app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha
-spec:
-  clusterIP: None
-  ports:
-  - name: tcp-server
-    port: 6379
-    protocol: TCP
-    targetPort: redis
-  - name: tcp-sentinel
-    port: 26379
-    protocol: TCP
-    targetPort: sentinel
-  selector:
-    app.kubernetes.io/name: argocd-redis-ha
-  type: ClusterIP
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-announce-0
+  name: argocd-redis
 spec:
   ports:
-  - name: tcp-server
+  - name: tcp-redis
     port: 6379
-    protocol: TCP
-    targetPort: redis
-  - name: tcp-sentinel
-    port: 26379
-    protocol: TCP
-    targetPort: sentinel
-  publishNotReadyAddresses: true
+    targetPort: 6379
   selector:
-    app.kubernetes.io/name: argocd-redis-ha
-    statefulset.kubernetes.io/pod-name: argocd-redis-ha-server-0
-  type: ClusterIP
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-announce-1
-spec:
-  ports:
-  - name: tcp-server
-    port: 6379
-    protocol: TCP
-    targetPort: redis
-  - name: tcp-sentinel
-    port: 26379
-    protocol: TCP
-    targetPort: sentinel
-  publishNotReadyAddresses: true
-  selector:
-    app.kubernetes.io/name: argocd-redis-ha
-    statefulset.kubernetes.io/pod-name: argocd-redis-ha-server-1
-  type: ClusterIP
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-announce-2
-spec:
-  ports:
-  - name: tcp-server
-    port: 6379
-    protocol: TCP
-    targetPort: redis
-  - name: tcp-sentinel
-    port: 26379
-    protocol: TCP
-    targetPort: sentinel
-  publishNotReadyAddresses: true
-  selector:
-    app.kubernetes.io/name: argocd-redis-ha
-    statefulset.kubernetes.io/pod-name: argocd-redis-ha-server-2
-  type: ClusterIP
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha-haproxy
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-haproxy
-spec:
-  ports:
-  - name: tcp-haproxy
-    port: 6379
-    protocol: TCP
-    targetPort: redis
-  selector:
-    app.kubernetes.io/name: argocd-redis-ha-haproxy
-  type: ClusterIP
+    app.kubernetes.io/name: argocd-redis
 ---
 apiVersion: v1
 kind: Service
@@ -11015,7 +9692,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
         name: argocd-applicationset-controller
         ports:
@@ -11030,8 +9707,6 @@ spec:
             - ALL
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /app/config/ssh
           name: ssh-known-hosts
@@ -11089,14 +9764,7 @@ spec:
       - command:
         - /shared/argocd-dex
         - rundex
-        env:
-        - name: ARGOCD_DEX_SERVER_DISABLE_TLS
-          valueFrom:
-            configMapKeyRef:
-              key: dexserver.disable.tls
-              name: argocd-cmd-params-cm
-              optional: true
-        image: ghcr.io/dexidp/dex:v2.35.3
+        image: ghcr.io/dexidp/dex:v2.32.0
         imagePullPolicy: Always
         name: dex
         ports:
@@ -11110,22 +9778,21 @@ spec:
             - ALL
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /shared
           name: static-files
         - mountPath: /tmp
           name: dexconfig
-        - mountPath: /tls
-          name: argocd-dex-server-tls
+        - mountPath: /tmp/oidc
+          name: google-json
+          readOnly: true
       initContainers:
       - command:
         - cp
         - -n
         - /usr/local/bin/argocd
         - /shared/argocd-dex
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
         name: copyutil
         securityContext:
@@ -11135,8 +9802,6 @@ spec:
             - ALL
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /shared
           name: static-files
@@ -11148,17 +9813,10 @@ spec:
         name: static-files
       - emptyDir: {}
         name: dexconfig
-      - name: argocd-dex-server-tls
+      - name: google-json
         secret:
-          items:
-          - key: tls.crt
-            path: tls.crt
-          - key: tls.key
-            path: tls.key
-          - key: ca.crt
-            path: ca.crt
-          optional: true
-          secretName: argocd-dex-server-tls
+          defaultMode: 420
+          secretName: argocd-google-groups-json
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -11178,7 +9836,7 @@ spec:
       containers:
       - command:
         - argocd-notifications
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
         livenessProbe:
           tcpSocket:
@@ -11198,8 +9856,6 @@ spec:
         workingDir: /app
       securityContext:
         runAsNonRoot: true
-        seccompProfile:
-          type: RuntimeDefault
       serviceAccountName: argocd-notifications-controller
       volumes:
       - configMap:
@@ -11222,98 +9878,53 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha-haproxy
+    app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-haproxy
+  name: argocd-redis
 spec:
-  replicas: 3
-  revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: argocd-redis-ha-haproxy
-  strategy:
-    type: RollingUpdate
+      app.kubernetes.io/name: argocd-redis
   template:
     metadata:
-      annotations:
-        checksum/config: 1f7a9ffcacb3871ceb9b0741c0714e3f7fa656d426a398c1f727fffb01073f35
       labels:
-        app.kubernetes.io/name: argocd-redis-ha-haproxy
-      name: argocd-redis-ha-haproxy
+        app.kubernetes.io/name: argocd-redis
     spec:
       affinity:
         podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                app.kubernetes.io/name: argocd-redis-ha-haproxy
-            topologyKey: kubernetes.io/hostname
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/name: argocd-redis
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/part-of: argocd
+              topologyKey: kubernetes.io/hostname
+            weight: 5
       containers:
-      - image: haproxy:2.6.2-alpine
-        imagePullPolicy: IfNotPresent
-        lifecycle: {}
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 8888
-          initialDelaySeconds: 5
-          periodSeconds: 3
-        name: haproxy
+      - args:
+        - --save
+        - ""
+        - --appendonly
+        - "no"
+        image: redis:7.0.4-alpine
+        imagePullPolicy: Always
+        name: redis
         ports:
         - containerPort: 6379
-          name: redis
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 8888
-          initialDelaySeconds: 5
-          periodSeconds: 3
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /usr/local/etc/haproxy
-          name: data
-        - mountPath: /run/haproxy
-          name: shared-socket
-      initContainers:
-      - args:
-        - /readonly/haproxy_init.sh
-        command:
-        - sh
-        image: haproxy:2.6.2-alpine
-        imagePullPolicy: IfNotPresent
-        name: config-init
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /readonly
-          name: config-volume
-          readOnly: true
-        - mountPath: /data
-          name: data
+            - all
       securityContext:
-        fsGroup: 99
         runAsNonRoot: true
-        runAsUser: 99
-      serviceAccountName: argocd-redis-ha-haproxy
-      volumes:
-      - configMap:
-          name: argocd-redis-ha-configmap
-        name: config-volume
-      - emptyDir: {}
-        name: shared-socket
-      - emptyDir: {}
-        name: data
+        runAsUser: 999
+      serviceAccountName: argocd-redis
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -11324,7 +9935,6 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-repo-server
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-repo-server
@@ -11340,20 +9950,20 @@ spec:
               labelSelector:
                 matchLabels:
                   app.kubernetes.io/name: argocd-repo-server
-              topologyKey: failure-domain.beta.kubernetes.io/zone
+              topologyKey: kubernetes.io/hostname
             weight: 100
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                app.kubernetes.io/name: argocd-repo-server
-            topologyKey: kubernetes.io/hostname
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/part-of: argocd
+              topologyKey: kubernetes.io/hostname
+            weight: 5
       automountServiceAccountToken: false
       containers:
       - command:
-        - entrypoint.sh
-        - argocd-repo-server
-        - --redis
-        - argocd-redis-ha-haproxy:6379
+        - sh
+        - -c
+        - entrypoint.sh argocd-repo-server --redis argocd-redis:6379
         env:
         - name: ARGOCD_RECONCILIATION_TIMEOUT
           valueFrom:
@@ -11415,12 +10025,6 @@ spec:
               key: redis.server
               name: argocd-cmd-params-cm
               optional: true
-        - name: REDIS_COMPRESSION
-          valueFrom:
-            configMapKeyRef:
-              key: redis.compression
-              name: argocd-cmd-params-cm
-              optional: true
         - name: REDISDB
           valueFrom:
             configMapKeyRef:
@@ -11451,31 +10055,13 @@ spec:
               key: reposerver.plugin.tar.exclusions
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_REPO_SERVER_ALLOW_OUT_OF_BOUNDS_SYMLINKS
-          valueFrom:
-            configMapKeyRef:
-              key: reposerver.allow.oob.symlinks
-              name: argocd-cmd-params-cm
-              optional: true
-        - name: ARGOCD_REPO_SERVER_STREAMED_MANIFEST_MAX_TAR_SIZE
-          valueFrom:
-            configMapKeyRef:
-              key: reposerver.streamed.manifest.max.tar.size
-              name: argocd-cmd-params-cm
-              optional: true
-        - name: ARGOCD_REPO_SERVER_STREAMED_MANIFEST_MAX_EXTRACTED_SIZE
-          valueFrom:
-            configMapKeyRef:
-              key: reposerver.streamed.manifest.max.extracted.size
-              name: argocd-cmd-params-cm
-              optional: true
         - name: HELM_CACHE_HOME
           value: /helm-working-dir
         - name: HELM_CONFIG_HOME
           value: /helm-working-dir
         - name: HELM_DATA_HOME
           value: /helm-working-dir
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
@@ -11498,11 +10084,9 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
-            - ALL
+            - all
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /app/config/ssh
           name: ssh-known-hosts
@@ -11526,17 +10110,15 @@ spec:
         - -n
         - /usr/local/bin/argocd
         - /var/run/argocd/argocd-cmp-server
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         name: copyutil
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
-            - ALL
+            - all
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /var/run/argocd
           name: var-files
@@ -11582,7 +10164,6 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-server
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-server
@@ -11598,21 +10179,18 @@ spec:
               labelSelector:
                 matchLabels:
                   app.kubernetes.io/name: argocd-server
-              topologyKey: failure-domain.beta.kubernetes.io/zone
+              topologyKey: kubernetes.io/hostname
             weight: 100
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                app.kubernetes.io/name: argocd-server
-            topologyKey: kubernetes.io/hostname
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/part-of: argocd
+              topologyKey: kubernetes.io/hostname
+            weight: 5
       containers:
       - command:
         - argocd-server
-        - --redis
-        - argocd-redis-ha-haproxy:6379
         env:
-        - name: ARGOCD_API_SERVER_REPLICAS
-          value: "2"
         - name: ARGOCD_SERVER_INSECURE
           valueFrom:
             configMapKeyRef:
@@ -11637,7 +10215,7 @@ spec:
               key: server.log.format
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_SERVER_LOG_LEVEL
+        - name: ARGOCD_REPO_SERVER_LOGLEVEL
           valueFrom:
             configMapKeyRef:
               key: server.log.level
@@ -11697,18 +10275,6 @@ spec:
               key: server.repo.server.strict.tls
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_SERVER_DEX_SERVER_PLAINTEXT
-          valueFrom:
-            configMapKeyRef:
-              key: server.dex.server.plaintext
-              name: argocd-cmd-params-cm
-              optional: true
-        - name: ARGOCD_SERVER_DEX_SERVER_STRICT_TLS
-          valueFrom:
-            configMapKeyRef:
-              key: server.dex.server.strict.tls
-              name: argocd-cmd-params-cm
-              optional: true
         - name: ARGOCD_TLS_MIN_VERSION
           valueFrom:
             configMapKeyRef:
@@ -11763,12 +10329,6 @@ spec:
               key: redis.server
               name: argocd-cmd-params-cm
               optional: true
-        - name: REDIS_COMPRESSION
-          valueFrom:
-            configMapKeyRef:
-              key: redis.compression
-              name: argocd-cmd-params-cm
-              optional: true
         - name: REDISDB
           valueFrom:
             configMapKeyRef:
@@ -11793,13 +10353,7 @@ spec:
               key: otlp.address
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_APPLICATION_NAMESPACES
-          valueFrom:
-            configMapKeyRef:
-              key: application.namespaces
-              name: argocd-cmd-params-cm
-              optional: true
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -11821,35 +10375,22 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
-            - ALL
+            - all
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
-        - mountPath: /tmp/extensions/
-          name: extensions
         - mountPath: /app/config/ssh
           name: ssh-known-hosts
         - mountPath: /app/config/tls
           name: tls-certs
         - mountPath: /app/config/server/tls
           name: argocd-repo-server-tls
-        - mountPath: /app/config/dex/tls
-          name: argocd-dex-server-tls
         - mountPath: /home/argocd
           name: plugins-home
         - mountPath: /tmp
           name: tmp
-      - image: ghcr.io/argoproj-labs/argocd-extensions:latest
-        name: argocd-extensions
-        volumeMounts:
-        - mountPath: /tmp/extensions/
-          name: extensions
       serviceAccountName: argocd-server
       volumes:
-      - emptyDir: {}
-        name: extensions
       - emptyDir: {}
         name: plugins-home
       - emptyDir: {}
@@ -11871,15 +10412,6 @@ spec:
             path: ca.crt
           optional: true
           secretName: argocd-repo-server-tls
-      - name: argocd-dex-server-tls
-        secret:
-          items:
-          - key: tls.crt
-            path: tls.crt
-          - key: ca.crt
-            path: ca.crt
-          optional: true
-          secretName: argocd-dex-server-tls
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -11918,8 +10450,6 @@ spec:
       containers:
       - command:
         - argocd-application-controller
-        - --redis
-        - argocd-redis-ha-haproxy:6379
         env:
         - name: ARGOCD_CONTROLLER_REPLICAS
           value: "1"
@@ -11995,12 +10525,6 @@ spec:
               key: controller.repo.server.strict.tls
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_APPLICATION_CONTROLLER_PERSIST_RESOURCE_HEALTH
-          valueFrom:
-            configMapKeyRef:
-              key: controller.resource.health.persist
-              name: argocd-cmd-params-cm
-              optional: true
         - name: ARGOCD_APP_STATE_CACHE_EXPIRATION
           valueFrom:
             configMapKeyRef:
@@ -12011,12 +10535,6 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: redis.server
-              name: argocd-cmd-params-cm
-              optional: true
-        - name: REDIS_COMPRESSION
-          valueFrom:
-            configMapKeyRef:
-              key: redis.compression
               name: argocd-cmd-params-cm
               optional: true
         - name: REDISDB
@@ -12037,14 +10555,14 @@ spec:
               key: otlp.address
               name: argocd-cmd-params-cm
               optional: true
-        - name: ARGOCD_APPLICATION_NAMESPACES
-          valueFrom:
-            configMapKeyRef:
-              key: application.namespaces
-              name: argocd-cmd-params-cm
-              optional: true
-        image: quay.io/argoproj/argocd:v2.5.3
+        image: quay.io/argoproj/argocd:v2.4.10
         imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8082
+          initialDelaySeconds: 5
+          periodSeconds: 10
         name: argocd-application-controller
         ports:
         - containerPort: 8082
@@ -12058,11 +10576,9 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
-            - ALL
+            - all
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /app/config/controller/tls
           name: argocd-repo-server-tls
@@ -12085,210 +10601,6 @@ spec:
           optional: true
           secretName: argocd-repo-server-tls
 ---
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  labels:
-    app.kubernetes.io/component: redis
-    app.kubernetes.io/name: argocd-redis-ha
-    app.kubernetes.io/part-of: argocd
-  name: argocd-redis-ha-server
-spec:
-  podManagementPolicy: OrderedReady
-  replicas: 3
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: argocd-redis-ha
-  serviceName: argocd-redis-ha
-  template:
-    metadata:
-      annotations:
-        checksum/init-config: 84ccf6a9b8a7fa3ae5b62a8f17d6c65a5197e9605da9b2761179bf942828eefe
-      labels:
-        app.kubernetes.io/name: argocd-redis-ha
-    spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                app.kubernetes.io/name: argocd-redis-ha
-            topologyKey: kubernetes.io/hostname
-      automountServiceAccountToken: false
-      containers:
-      - args:
-        - /data/conf/redis.conf
-        command:
-        - redis-server
-        image: redis:7.0.5-alpine
-        imagePullPolicy: IfNotPresent
-        lifecycle:
-          preStop:
-            exec:
-              command:
-              - /bin/sh
-              - /readonly-config/trigger-failover-if-master.sh
-        livenessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - /health/redis_liveness.sh
-          failureThreshold: 5
-          initialDelaySeconds: 30
-          periodSeconds: 15
-          successThreshold: 1
-          timeoutSeconds: 15
-        name: redis
-        ports:
-        - containerPort: 6379
-          name: redis
-        readinessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - /health/redis_readiness.sh
-          failureThreshold: 5
-          initialDelaySeconds: 30
-          periodSeconds: 15
-          successThreshold: 1
-          timeoutSeconds: 15
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /readonly-config
-          name: config
-          readOnly: true
-        - mountPath: /data
-          name: data
-        - mountPath: /health
-          name: health
-      - args:
-        - /data/conf/sentinel.conf
-        command:
-        - redis-sentinel
-        image: redis:7.0.5-alpine
-        imagePullPolicy: IfNotPresent
-        lifecycle: {}
-        livenessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - /health/sentinel_liveness.sh
-          failureThreshold: 5
-          initialDelaySeconds: 30
-          periodSeconds: 15
-          successThreshold: 1
-          timeoutSeconds: 15
-        name: sentinel
-        ports:
-        - containerPort: 26379
-          name: sentinel
-        readinessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - /health/sentinel_liveness.sh
-          failureThreshold: 5
-          initialDelaySeconds: 30
-          periodSeconds: 15
-          successThreshold: 3
-          timeoutSeconds: 15
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /data
-          name: data
-        - mountPath: /health
-          name: health
-      - args:
-        - /readonly-config/fix-split-brain.sh
-        command:
-        - sh
-        env:
-        - name: SENTINEL_ID_0
-          value: 3c0d9c0320bb34888c2df5757c718ce6ca992ce6
-        - name: SENTINEL_ID_1
-          value: 40000915ab58c3fa8fd888fb8b24711944e6cbb4
-        - name: SENTINEL_ID_2
-          value: 2bbec7894d954a8af3bb54d13eaec53cb024e2ca
-        image: redis:7.0.5-alpine
-        imagePullPolicy: IfNotPresent
-        name: split-brain-fix
-        resources: {}
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /readonly-config
-          name: config
-          readOnly: true
-        - mountPath: /data
-          name: data
-      initContainers:
-      - args:
-        - /readonly-config/init.sh
-        command:
-        - sh
-        env:
-        - name: SENTINEL_ID_0
-          value: 3c0d9c0320bb34888c2df5757c718ce6ca992ce6
-        - name: SENTINEL_ID_1
-          value: 40000915ab58c3fa8fd888fb8b24711944e6cbb4
-        - name: SENTINEL_ID_2
-          value: 2bbec7894d954a8af3bb54d13eaec53cb024e2ca
-        image: redis:7.0.5-alpine
-        imagePullPolicy: IfNotPresent
-        name: config-init
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          seccompProfile:
-            type: RuntimeDefault
-        volumeMounts:
-        - mountPath: /readonly-config
-          name: config
-          readOnly: true
-        - mountPath: /data
-          name: data
-      securityContext:
-        fsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
-      serviceAccountName: argocd-redis-ha
-      terminationGracePeriodSeconds: 60
-      volumes:
-      - configMap:
-          name: argocd-redis-ha-configmap
-        name: config
-      - configMap:
-          defaultMode: 493
-          name: argocd-redis-ha-health-configmap
-        name: health
-      - emptyDir: {}
-        name: data
-  updateStrategy:
-    type: RollingUpdate
----
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -12302,25 +10614,6 @@ spec:
   podSelector:
     matchLabels:
       app.kubernetes.io/name: argocd-application-controller
-  policyTypes:
-  - Ingress
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: argocd-applicationset-controller-network-policy
-spec:
-  ingress:
-  - from:
-    - namespaceSelector: {}
-    ports:
-    - port: 7000
-      protocol: TCP
-    - port: 8080
-      protocol: TCP
-  podSelector:
-    matchLabels:
-      app.kubernetes.io/name: argocd-applicationset-controller
   policyTypes:
   - Ingress
 ---
@@ -12353,40 +10646,8 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: argocd-notifications-controller-network-policy
+  name: argocd-redis-network-policy
 spec:
-  ingress:
-  - from:
-    - namespaceSelector: {}
-    ports:
-    - port: 9001
-      protocol: TCP
-  podSelector:
-    matchLabels:
-      app.kubernetes.io/name: argocd-notifications-controller
-  policyTypes:
-  - Ingress
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: argocd-redis-ha-proxy-network-policy
-spec:
-  egress:
-  - ports:
-    - port: 6379
-      protocol: TCP
-    - port: 26379
-      protocol: TCP
-    to:
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/name: argocd-redis-ha
-  - ports:
-    - port: 53
-      protocol: UDP
-    - port: 53
-      protocol: TCP
   ingress:
   - from:
     - podSelector:
@@ -12401,54 +10662,11 @@ spec:
     ports:
     - port: 6379
       protocol: TCP
-    - port: 26379
-      protocol: TCP
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: argocd-redis-ha-haproxy
+      app.kubernetes.io/name: argocd-redis
   policyTypes:
   - Ingress
-  - Egress
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: argocd-redis-ha-server-network-policy
-spec:
-  egress:
-  - ports:
-    - port: 6379
-      protocol: TCP
-    - port: 26379
-      protocol: TCP
-    to:
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/name: argocd-redis-ha
-  - ports:
-    - port: 53
-      protocol: UDP
-    - port: 53
-      protocol: TCP
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/name: argocd-redis-ha-haproxy
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/name: argocd-redis-ha
-    ports:
-    - port: 6379
-      protocol: TCP
-    - port: 26379
-      protocol: TCP
-  podSelector:
-    matchLabels:
-      app.kubernetes.io/name: argocd-redis-ha
-  policyTypes:
-  - Ingress
-  - Egress
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
