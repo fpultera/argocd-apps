@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-example
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/fpultera/helmChart.git'
+    path: .
+    targetRevision: main
+    # helm: 
+    #   values: |
+    #     templateVersion: v2
+    #     serviceMetadata:
+    #       team: "devops"
+    #       tier: "1"
+    #     app: "eventstore-exporter"
+    #     environment: "infra-services"
+    #     containerPort: "9448"
+    #     image:
+    #       repository: "gcr.io/prj-mundi-infra-services/eventstore-exporter"
+    #       tag: "0.10.1"
+    #     replicaCount: "1"
+    #     env:
+    #       - name: EVENTSTORE_URL
+    #         secret: eventstore-url
+    #       - name: EVENTSTORE_USER
+    #         value: "'apps'"
+    #       - name: EVENTSTORE_PASSWORD
+    #         secret: eventstore-password
+    #       - name: VERBOSE
+    #         value: "'false'"
+    #       - name: CLUSTER_MODE
+    #         value: "'cluster'"
+    #       - name: INSECURE_SKIP_VERIFY
+    #         value: "'true'"
+    #       - name: ENABLE_PARKED_MESSAGES_STATS
+    #         value: "'true'"
+    #     nodeSelector:
+    #       cloud.google.com/gke-nodepool: stable
+    #     tolerations:
+    #     - key: stable-node-pool
+    #       operator: Equal
+    #       value: "true"
+    #       effect: NoSchedule
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-example
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
