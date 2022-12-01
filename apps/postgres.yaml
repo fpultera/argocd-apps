@@ -16,6 +16,9 @@ spec:
       values: |
         auth:
           enablePostgresUser: true
+          username: "airbyte"
+          database: "db-airbyte"
+          password: "caca123"
   syncPolicy:
     automated:
       prune: true
