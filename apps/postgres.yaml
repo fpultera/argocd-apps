@@ -12,11 +12,10 @@ spec:
     repoURL: 'https://charts.bitnami.com/bitnami'
     targetRevision: 11.6.21
     chart: postgresql
-    # helm:
-    #   values: |
-    #     adminui:
-    #       service:
-    #         type: ClusterIP
+    helm:
+      values: |
+        auth:
+          enablePostgresUser: true
   syncPolicy:
     automated:
       prune: true
