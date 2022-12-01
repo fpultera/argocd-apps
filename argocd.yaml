@@ -12,7 +12,3 @@ spec:
     path: apps/.
     repoURL: https://github.com/fpultera/argocd-apps.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
