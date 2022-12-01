@@ -20,8 +20,5 @@ spec:
           database: "db-airbyte"
           password: "caca123"
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
