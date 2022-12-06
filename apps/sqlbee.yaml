@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: 'https://github.com/connctd/sqlbee'
-    targetRevision: master
+    repoURL: 'https://github.com/fpultera/sqlbee'
+    targetRevision: main
     path: 'deployment/sqlbee'
   syncPolicy:
     automated:
