@@ -17,6 +17,7 @@ spec:
         - 'env/local/values-serverFiles-prometheus.yaml'
         - 'env/local/values-serverFiles-alerting_rules.yaml'
         - 'env/local/values-alertmanagerFiles-alertmanager.yaml'
+        - 'env/local/values-serverFiles-alerting_rules_data.yaml'
         - 'env/local/values.yaml'
   syncPolicy:
     automated:
