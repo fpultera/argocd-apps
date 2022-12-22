@@ -1,0 +1,7 @@
+        adminui:
+          exposeHTTP: false
+          service:
+            type: NodePort
+        deploy:
+          operator: true
+          restapi: true

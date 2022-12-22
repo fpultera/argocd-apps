@@ -12,6 +12,12 @@ spec:
     repoURL: 'https://github.com/fpultera/prometheus-chart'
     targetRevision: main
     path: 'prometheus'
+    helm:
+      valueFiles:
+        - 'env/local/values-serverFiles-prometheus.yaml'
+        - 'env/local/values-serverFiles-alerting_rules.yaml'
+        - 'env/local/values-alertmanagerFiles-alertmanager.yaml'
+        - 'env/local/values.yaml'
   syncPolicy:
     automated:
       prune: true
