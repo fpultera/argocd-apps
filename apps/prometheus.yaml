@@ -20,6 +20,7 @@ spec:
         - 'env/local/values-alertmanagerFiles-alertmanager.yaml'
         - 'env/local/teams/data/alerting_rules_data.yaml'
         - 'env/local/teams/wallet/alerting_rules_wallet.yaml'
+        - 'env/local/teams/risk/alerting_rules_risk.yaml'
         - 'env/local/values.yaml'
   # sources:
   #   - repoURL: https://github.com/fpultera/externalValueFiles.git
