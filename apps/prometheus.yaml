@@ -27,7 +27,7 @@ spec:
             - 'env/{{ cluster }}/values-serverFiles-alerting_rules.yaml'
             - 'env/{{ cluster }}/values-alertmanagerFiles-alertmanager.yaml'
             - 'env/{{ cluster }}/values.yaml'
-            - 'env/{{ cluster }}/teams/{{ teams }}/alerting_rules_{{ teams }}.yml'
+            - 'env/{{ cluster }}/teams/{{ teams }}/alerting_rules_{{ teams }}.yaml'
       destination:
         server: '{{url}}'
         namespace: prometheus-{{ env }}
