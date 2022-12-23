@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/fpultera/prometheus-chart.git
       revision: HEAD
       files:
-      - path: "prometheus/env/teams/config*.json"
+      - path: "prometheus/env/local/teams/config*json"
   template:
     metadata:
       name: 'prometheus-{{ cluster }}'
@@ -26,7 +26,7 @@ spec:
             - 'env/{{ cluster }}/values-serverFiles-alerting_rules.yaml'
             - 'env/{{ cluster }}/values-alertmanagerFiles-alertmanager.yaml'
             - 'env/{{ cluster }}/values.yaml'
-            - 'env/{{ cluster }}/teams/{{ teams.owner }}/alerting_rules_{{ teams.tl }}.yaml'
+            # - 'env/{{ cluster }}/teams/{{ teams.owner }}/alerting_rules_{{ teams.tl }}.yaml'
       destination:
         server: '{{url}}'
         namespace: prometheus-{{ env }}
