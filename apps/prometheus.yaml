@@ -20,6 +20,7 @@ spec:
         targetRevision: HEAD
         path: prometheus
         helm:
+          ignoreMissingValueFiles: true
           valueFiles:
             - 'env/{{ cluster }}/values-serverFiles-prometheus.yaml'
             - 'env/{{ cluster }}/values-serverFiles-alerting_rules.yaml'
