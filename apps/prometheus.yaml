@@ -13,6 +13,7 @@ spec:
     targetRevision: main
     path: 'prometheus'
     helm:
+      ignoreMissingValueFiles: true
       valueFiles:
         - 'env/local/values-serverFiles-prometheus.yaml'
         - 'env/local/values-serverFiles-alerting_rules.yaml'
