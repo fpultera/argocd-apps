@@ -16,9 +16,15 @@ spec:
       valueFiles:
         - 'env/local/values-serverFiles-prometheus.yaml'
         - 'env/local/values-serverFiles-alerting_rules.yaml'
-        - 'env/local/values-serverFiles-alerting_rules_test.yaml'
+        - 'values-serverFiles-alerting_rules_test.yaml'
         - 'env/local/values-alertmanagerFiles-alertmanager.yaml'
         - 'env/local/values.yaml'
+      externalValueFiles:
+        - repoURL: https://github.com/fpultera/externalValueFiles.git
+          targetRevision: main
+          valueFiles:
+            - values-serverFiles-alerting_rules_test.yaml
+
   syncPolicy:
     automated:
       prune: true
