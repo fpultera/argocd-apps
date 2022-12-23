@@ -5,14 +5,14 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/fpultera/prometheus-chart.git
-      revision: HEAD
-      files:
-      - path: "prometheus/env/local/teams/config*json"
+  - list:
+      elements:
+      - cluster: local
+        env: 'local'
+        url: 'https://kubernetes.default.svc'
   template:
     metadata:
-      name: 'prometheus-{{ cluster }}'
+      name: 'prometheus-{{cluster}}'
     spec:
       project: default
       source:
@@ -26,7 +26,7 @@ spec:
             - 'env/{{ cluster }}/values-serverFiles-alerting_rules.yaml'
             - 'env/{{ cluster }}/values-alertmanagerFiles-alertmanager.yaml'
             - 'env/{{ cluster }}/values.yaml'
-            - 'env/{{ cluster }}/teams/{{ teams.owner }}/alerting_rules_{{ teams.owner }}.yaml'
+            - 'teams/data/alerting_rules_data.yaml'
       destination:
         server: '{{url}}'
         namespace: prometheus-{{ env }}
