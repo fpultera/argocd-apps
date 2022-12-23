@@ -9,10 +9,10 @@ spec:
       repoURL: https://github.com/fpultera/prometheus-chart.git
       revision: HEAD
       files:
-      - path: "prometheus/env/*"
+      - path: "prometheus/env/teams/config*.json"
   template:
     metadata:
-      name: 'prometheus-{{cluster}}'
+      name: 'prometheus-{{ cluster }}'
     spec:
       project: default
       source:
