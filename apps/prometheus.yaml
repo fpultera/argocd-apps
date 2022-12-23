@@ -1,36 +1,34 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: prometheus
+  name: application-set-prometheus
   namespace: argocd
 spec:
-  destination:
-    namespace: prometheus
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    repoURL: 'https://github.com/fpultera/prometheus-chart'
-    targetRevision: main
-    path: 'prometheus'
-    helm:
-      ignoreMissingValueFiles: true
-      valueFiles:
-        - 'env/local/values-serverFiles-prometheus.yaml'
-        - 'env/local/values-serverFiles-alerting_rules.yaml'
-        - 'env/local/values-alertmanagerFiles-alertmanager.yaml'
-        - 'env/local/teams/data/alerting_rules_data.yaml'
-        - 'env/local/teams/wallet/alerting_rules_wallet.yaml'
-        - 'env/local/teams/risk/alerting_rules_risk.yaml'
-        - 'env/local/values.yaml'
-  # sources:
-  #   - repoURL: https://github.com/fpultera/externalValueFiles.git
-  #     targetRevision: main
-  #     helm:
-  #       valueFiles:
-  #         - values-serverFiles-alerting_rules_test.yaml
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+  generators:
+  - list:
+      elements:
+      - cluster: local
+        env: 'loca'
+        url: 'https://kubernetes.default.svc'
+  template:
+    metadata:
+      name: 'prometheus-{{cluster}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/fpultera/prometheus-chart'
+        targetRevision: HEAD
+        path: prometheus
+        helm:
+          valueFiles:
+            - 'env/{{ cluster }}/values-serverFiles-prometheus.yaml'
+            - 'env/{{ cluster }}/values-serverFiles-alerting_rules.yaml'
+            - 'env/{{ cluster }}/values-alertmanagerFiles-alertmanager.yaml'
+            - 'env/{{ cluster }}/values.yaml'
+      destination:
+        server: '{{url}}'
+        namespace: prometheus-{{ env }}
+      syncPolicy:
+        automated: {}
+        syncOptions:
+          - CreateNamespace=true
