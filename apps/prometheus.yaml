@@ -10,8 +10,8 @@ spec:
       - cluster: local
         env: 'local'
         url: 'https://kubernetes.default.svc'
-        teams:
-          - data
+        values:
+          teams: data
   template:
     metadata:
       name: 'prometheus-{{cluster}}'
