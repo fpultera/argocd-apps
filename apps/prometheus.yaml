@@ -27,6 +27,8 @@ spec:
             - 'env/{{ cluster }}/values-alertmanagerFiles-alertmanager.yaml'
             - 'env/{{ cluster }}/values.yaml'
             - 'teams/data/alerting_rules_data.yaml'
+            - 'teams/data/alerting_rules_risk.yaml'
+            - 'teams/data/alerting_rules_wallet.yaml'
       destination:
         server: '{{url}}'
         namespace: prometheus-{{ env }}
