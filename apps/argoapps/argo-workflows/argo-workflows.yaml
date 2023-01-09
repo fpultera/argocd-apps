@@ -7,7 +7,7 @@ spec:
   project: data
   source:
     repoURL: 'https://github.com/fpultera/argocd-apps.git'
-    path: /apps/argoapps/argo-workflows/install/.
+    path: apps/argoapps/argo-workflows/install/.
     targetRevision: main
     directory:
       recurse: true    
