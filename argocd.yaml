@@ -9,6 +9,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/.
+    path: apps/argoapps/.
     repoURL: https://github.com/fpultera/argocd-apps.git
     targetRevision: HEAD
