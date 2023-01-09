@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-workflows
+  namespace: argocd
+spec:
+  project: data
+  source:
+    repoURL: 'https://github.com/fpultera/argocd-apps.git'
+    path: /apps/argo-workflows/install/.
+    targetRevision: main
+    directory:
+      recurse: true    
+  destination:
+    namespace: argo-workflows
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
