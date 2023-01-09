@@ -11,4 +11,6 @@ spec:
   source:
     path: apps/argoapps/.
     repoURL: https://github.com/fpultera/argocd-apps.git
-    targetRevision: HEAD
+    targetRevision: main
+    directory:
+      recurse: true
