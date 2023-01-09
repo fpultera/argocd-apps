@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: internal-apps
   namespace: argocd
 spec:
   destination:
@@ -12,5 +12,3 @@ spec:
     path: apps/argoapps/.
     repoURL: https://github.com/fpultera/argocd-apps.git
     targetRevision: main
-    directory:
-      recurse: true
