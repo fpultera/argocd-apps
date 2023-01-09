@@ -4,7 +4,7 @@ metadata:
   name: argo-workflows
   namespace: argocd
 spec:
-  project: data
+  project: default
   source:
     repoURL: 'https://github.com/fpultera/argocd-apps.git'
     path: apps/argoapps/argo-workflows/install/.
