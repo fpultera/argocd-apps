@@ -550,6 +550,7 @@ spec:
       containers:
       - args:
         - server
+        - '--auth-mode=server'
         image: argoproj/argocli:v3.0.4
         name: argo-server
         ports:
